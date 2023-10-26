@@ -6,4 +6,14 @@
   <p>{{post.intro}}</p>
   <p>{{post.body}}</p>
   <hr>
+
+  <!-- コメント投稿エリア -->
+  <h2 class="subtitle">コメントを追加</h2>
+  <form action="." method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="control">
+      <button class="button is-danger">送信</button>
+    </div>
+  </form>
 {% endblock %}
