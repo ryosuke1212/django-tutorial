@@ -10,6 +10,6 @@ class Post(models.Model):
 class Comment(models.Model):
   post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
   name = models.CharField(max_length=255)
-  email = models.TextField()
+  email = models.EmailField()
   body = models.TextField()
-  posteddate = models.DateTimeField(add_now_add=True)
+  posteddate = models.DateTimeField(auto_now_add=True)
