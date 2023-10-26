@@ -7,6 +7,26 @@
   <p>{{post.body}}</p>
   <hr>
 
+  <!-- コメントされたものを表示 -->
+  <h2 class="subtitle">コメント</h2>
+  {% for comment in post.comments.all %}
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>{{comment.name}}</strong> <small>{{comment.posted_date}}</small>
+          <br>
+          {{comment.body}}
+        </p>
+      </div>
+    </div>
+  </article>
+  {% empty %}
+  <div class="notification">
+    <p>まだコメントがありません。</p>
+  </div>
+  {% endfor %}
+
   <!-- コメント投稿エリア -->
   <h2 class="subtitle">コメントを追加</h2>
   <form action="." method="post">
