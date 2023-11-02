@@ -6,6 +6,11 @@
   <h2 class="subtitle">{{post.title}}</h2>
   <small>Posted at {{post.posted_date}}</small>
   <p>{{post.intro}}</p>
+  {% if post.post_image %}
+  <div class="post-image">
+    <img src="{{ post.post_image.url }}" alt="{{ post.title }}">
+  </div>
+  {% endif %}
   <a href="{% url 'post_detail' post.slug %}">もっと読む</a>
   <hr>
 </div>

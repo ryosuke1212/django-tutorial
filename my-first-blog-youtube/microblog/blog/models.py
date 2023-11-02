@@ -6,6 +6,7 @@ class Post(models.Model):
   intro = models.TextField()
   body = models.TextField()
   posted_date = models.DateField(auto_now_add=True)
+  post_image = models.ImageField(upload_to='posts/images/', blank=True, null=True)
 
 class Comment(models.Model):
   post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
